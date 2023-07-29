@@ -1,4 +1,15 @@
 function updateTime() {
+  //New York
+  let NYElement = document.querySelector("#new-york-city");
+  if (NYElement) {
+    let NYDateElement = NYElement.querySelector(".date");
+    let NYTimeElement = NYElement.querySelector(".time");
+    let NYTime = moment().tz("America/New_York");
+
+    NYDateElement.innerHTML = NYTime.format("DD MMMM YYYY");
+    NYTimeElement.innerHTML = NYTime.format("HH:mm:ss");
+  }
+
   //London
   let londonElement = document.querySelector("#london");
   if (londonElement) {
@@ -10,15 +21,15 @@ function updateTime() {
     londonTimeElement.innerHTML = londonTime.format("HH:mm:ss");
   }
 
-  //New York
-  let NYElement = document.querySelector("#new-york-city");
-  if (NYElement) {
-    let NYDateElement = NYElement.querySelector(".date");
-    let NYTimeElement = NYElement.querySelector(".time");
-    let NYTime = moment().tz("America/New_York");
+  //Singapore
+  let SingaporeElement = document.querySelector("#singapore");
+  if (SingaporeElement) {
+    let SingaporeDateElement = SingaporeElement.querySelector(".date");
+    let SingaporeTimeElement = SingaporeElement.querySelector(".time");
+    let SingaporeTime = moment().tz("Asia/Singapore");
 
-    NYDateElement.innerHTML = NYTime.format("DD MMMM YYYY");
-    NYTimeElement.innerHTML = NYTime.format("HH:mm:ss");
+    SingaporeDateElement.innerHTML = SingaporeTime.format("DD MMMM YYYY");
+    SingaporeTimeElement.innerHTML = SingaporeTime.format("HH:mm:ss");
   }
 }
 setInterval(updateTime, 1000);
@@ -38,7 +49,8 @@ function updateCity(event) {
             <div class="date">${cityTime.format("DD MMMM YYYY")}</div>
           </div>
           <div class="time">${cityTime.format("HH:mm:ss")}</div>
-        </div>`;
+        </div>
+        <a href="/">All cities</a>`;
 }
 
 let citiesSelectElement = document.querySelector("#city");
